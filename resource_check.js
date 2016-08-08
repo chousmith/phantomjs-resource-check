@@ -18,6 +18,8 @@ var DEBUG = false;
 
 // a list of regular expressions of resources (urls) to log when we load them
 var resources_to_log = [
+  [ new RegExp('.ttf'), 'font' ],
+  [ new RegExp('.otf'), 'font' ],
   [ new RegExp('.png'), 'img' ],
   [ new RegExp('.jpg'), 'img' ],
   [ new RegExp('.jpeg'), 'img' ],
@@ -40,7 +42,8 @@ var resources_summary = [
   ['fb', []],
   ['css', []],
   ['js', []],
-  ['img', []]
+  ['img', []],
+  ['font', []]
 ];
 var resources_summary_key = {};
 // dynamically generate our quick key store hash something
@@ -204,10 +207,20 @@ page.onLoadFinished = function(status) {
               }
             }
             break;
-          default:
-            if ( ! DEBUG ) {
-              console.log( resources_summary[i][1].length +' '+ resources_summary[i][0] +' files' );
+          case 'font':
+            console.log( resources_summary[i][1].length +' '+ resources_summary[i][0] +' file'+ ( resources_summary[i][1].length > 1 ? 's' : '' ) );
+            if ( DEBUG ) {
+              if ( resources_summary[i][1].length > 0 ) {
+                for ( var s in resources_summary[i][1] ) {
+                  console.log( resources_summary[i][1][s] )
+                }
+              }
             }
+            break;
+          default:
+            //if ( ! DEBUG ) {
+            console.log( resources_summary[i][1].length +' '+ resources_summary[i][0] +' file'+ ( resources_summary[i][1].length > 1 ? 's' : '' ) );
+            //}
             break;
         }
       }
