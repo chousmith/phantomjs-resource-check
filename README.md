@@ -2,7 +2,7 @@
 A starting point for loading a URL with PhantomJS and looking at the resources there in the command line terminal, originally based off https://www.distilled.net/resources/using-phantomjs-to-monitor-google-analytics/
 
 ## Getting Started
-As of right now, the only known dependency is [phantomjs](http://phantomjs.org/) itself.
+As of right now, the only known dependency is [phantomjs](http://phantomjs.org/) itself?
 
 Once you have that installed on your localhost, or wherever this is going, and added to the system path, then you can just download the [resource_check.js](https://raw.githubusercontent.com/chousmith/phantomjs-resource-check/master/resource_check.js)
 
