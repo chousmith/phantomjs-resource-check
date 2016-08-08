@@ -1,7 +1,7 @@
 // initialise various variables
 var page = require('webpage').create(),
     system = require('system'),
-    address;
+    t, address;
 
 // how long should we wait for the page to load before we exit
 // in ms
@@ -22,7 +22,7 @@ var resources_to_log = [
 
 // check we have a url, if not exit
 if (system.args.length === 1) {
-    console.log('Usage: get_ga_resources.js http://www.yoururl.com');
+    console.log('Usage: get_ga_resources.js <some URL>');
     phantom.exit(1);
 } else {
     // address is the url passed
